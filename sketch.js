@@ -13,6 +13,13 @@ function draw() {
   h = hour();
   m = minute();
   s = second();
+  rh = windowHeight/3;
+  rm = windowHeight/6;
+  rs = windowHeight/9;
+
+  // Translate the canvas
+  translate(windowWidth/2, windowHeight/3);
+
   // Set positions of three circles
   xs = map(s, 0, 59, -windowWidth/2+rs, windowWidth/2-rs), ys = -rs;
   xm = map(m, 0, 59, -windowWidth/2+rm, windowWidth/2-rm), ym = rm/2;
@@ -32,8 +39,6 @@ function draw() {
   strokeWeight(3);
   // Set stroke color
   stroke(colorR,colorG,colorB);
-  // Translate the canvas
-  translate(windowWidth/2, windowHeight/3);
 
   // Draw three circles for hour, minute, and second representations
   // Get the position of the three dots on the circles, which represent the current second, minute, and hour
