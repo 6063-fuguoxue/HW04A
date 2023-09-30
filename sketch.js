@@ -30,9 +30,9 @@ function draw() {
   colorB = map(s, 0, 59, 255, 0); 
   // Background change color based on hour
   if (h<12) {
-    BGcolor = map(colorR, 0, 255, 500, 0);
+    BGcolor = map(colorR, 0, 255, 510, 0);
   } else {
-    BGcolor = map(colorR, 0, 255, 0, 500);
+    BGcolor = map(colorR, 0, 255, 0, 510);
   }
   background(BGcolor);
   
