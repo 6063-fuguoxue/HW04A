@@ -1,60 +1,52 @@
-# p5.js Template
+# HW04A Notes
 
-This is a README file that can be used to describe and document your assignment.
+This homework is to code a mechanism that keeps track of time. The three sub-divisions I chose are hour, minute, and second. 
 
-Markdown Cheatsheet (from [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)):
+## Plan
+My initial plan was to draw three static concentric circles representing hour, minute, and second. Each of the circles has a moving dot on its edge, whose position follows the current time. The three dots are connected by straight lines. 
 
----
----
+![Initial Plan](./img/1st-plan.jpg)
 
-# Heading1
-## Heading2
-### Heading3
-#### Heading4
-##### Heading5
-###### Heading6
+Another plan was to separate the three circles. To make the mechanism more interesting with more elements, I wanted to connect the three dots to form a triangle. 
 
-**bold text**
+![2nd Plan](./img/2nd-plan.jpg)
 
-*italicized text*
+I chose the 2nd plan because three separate circles can have more possibilities. For example, I could make them move around in the later stages of my process. 
 
-~~strikethrough text~~
+Therefore, I created a sketch and calculated the relationship between a circle and the dot on its edge. 
 
-Ordered List:
-1. First item
-2. Second item
-3. Third item
+![Trigonometric Calculations](./img/trigonometric-calculations.jpg)
 
-Unordered List:
-- First item
-- Second item
-- Third item
+### Implementation
 
-`short code block`
+#### Step 1: draw circles and dots
 
-```
-extended code block
-fun() {
-  return 0
-}
-```
+I started with the positioning of the circles and the dots. Since the logic for the three circle-dot sets is the same, I wrote the `drawCircle` function to complete these three tasks. Since the dot positions are required for the triangle drawing later, I let `drawCircle` return the x- and y-position. Then, in the `draw` function, I created a triangle using the three dots' positions. 
 
-Link:  
-[linked text](https://www.example.com)
+![HW04A-1](./img/hw04a-1.png)
 
+#### Step 2: use map() to move and color the shapes
 
-Image with url:  
-![image description](https://dm-gy-6063-2023f-d.github.io/assets/homework/02/clark-espaco-modulado-00.jpg)
+To add some colors on the canvas, I got inspiration from the references: I let the stroke and fill color of the circles and the triangle change according to the current time. This was done by three simple `map()` functions: hour controls R, minute controls G, and second controls B. To create visual tension, I set the stroke and fill colors to be a complementary color combination. Moreover, I let the fill colors have an alpha value of 125, so another color will appear where the triangle and the circles overlap. 
 
+Aside from colors, I let the three circles move as time passes. After translating the canvas, I used three `map()` functions to control the three circles' positions. 
 
-Image on repo:  
-![image description](./file-name.jpg)
+![HW04A-2](./img/hw04a-2.png)
 
+#### Step 3: the background color
 
-To start a new line, add two spaces at the end of a line, like this:  
-this is a new line.
+Finally, I decided to use the hour to control the background color. I first used `background(colorR)`, but soon found that the brightest background appears at 0 o'clock. Since I wanted the background color to indicate night and day, I mapped the hour number differently in two situations: h<12 and h>=12. This is achieved by an if-else structure. 
 
+### Outcome
 
-To start a new paragraph, leave an empty line between two lines of text.
+Below are screenshots of the final version of the mechanism. 
 
-This is a new paragraph.
+![HW04A-3](./img/hw04a-3.png)
+![HW04A-4](./img/hw04a-4.png)
+![HW04A-6](./img/hw04a-6.png)
+![HW04A-5](./img/hw04a-5.png)
+
+Below are screenshots for the time 00:00:00 and the time 23:59:59. 
+
+![HW04A-7](./img/hw04a-7.png)
+![HW04A-8](./img/hw04a-8.png)
