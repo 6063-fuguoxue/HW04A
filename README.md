@@ -33,9 +33,11 @@ Aside from colors, I let the three circles move as time passes. After translatin
 
 ![HW04A-2](./img/hw04a-2.png)
 
+I think this part is the most fun of this assignment. 
+
 #### Step 3: the background color
 
-Finally, I decided to use the hour to control the background color. I first used `background(colorR)`, but soon found that the brightest background appears at 0 o'clock. Since I wanted the background color to indicate night and day, I mapped the hour number differently in two situations: h<12 and h>=12. This is achieved by an if-else structure. 
+Finally, I decided to use the hour to control the background color. I first used `background(colorR)`, but soon found that the brightest background appears at 0 o'clock. Since I wanted the background color to indicate night and day, I mapped the hour number differently in two situations: h<12 and h>=12. This is achieved by an if-else statement. I think the background color is the hardest part to deal with because it involves a mapping from linear to piecewise function. 
 
 ### Outcome
 
