@@ -2,6 +2,8 @@
 
 This homework is to code a mechanism that keeps track of time. The three sub-divisions I chose are hour, minute, and second. 
 
+Please view my real-time clock [here](https://6063-fuguoxue.github.io/HW04A/). 
+
 ## Plan
 My initial plan was to draw three static concentric circles representing hour, minute, and second. Each of the circles has a moving dot on its edge, whose position follows the current time. The three dots are connected by straight lines. 
 
